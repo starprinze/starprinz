@@ -1,13 +1,9 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
+import { supabaseAdmin, isSupabaseConfigured } from "@/lib/supabase";
 
 export async function GET() {
   try {
-    if (
-      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-      process.env.NEXT_PUBLIC_SUPABASE_URL === "https://your-project.supabase.co"
-    ) {
-      // Return demo gallery when Supabase not configured
+    if (!isSupabaseConfigured()) {
       return NextResponse.json({
         images: [
           { id: 1, image_url: "https://picsum.photos/seed/sport1/400/500", prompt: "Match day poster", output_type: "Sports Poster", style: "Cinematic Dark", created_at: new Date().toISOString() },
@@ -29,7 +25,6 @@ export async function GET() {
       .limit(20);
 
     if (error) throw error;
-
     return NextResponse.json({ images: data || [] });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Failed to fetch gallery";
