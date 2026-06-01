@@ -1,39 +1,22 @@
 @import "tailwindcss";
-
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
 :root {
-  --bg: #060608;
-  --bg2: #0c0c10;
-  --bg3: #111116;
-  --surface: #16161c;
-  --surface2: #1e1e26;
-  --border: rgba(255,255,255,0.07);
-  --border2: rgba(255,255,255,0.12);
-  --text: #f0f0f5;
-  --muted: rgba(240,240,245,0.45);
-  --muted2: rgba(240,240,245,0.22);
-  --accent: #7b6ef6;
-  --accent2: #a78bfa;
-  --teal: #2dd4bf;
-  --gold: #e8b94f;
-  --coral: #f97168;
-  --green: #4ade80;
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --bg:#060608; --bg2:#0c0c10; --surface:#16161c; --surface2:#1e1e26;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --text:#f0f0f5; --muted:rgba(240,240,245,0.45); --muted2:rgba(240,240,245,0.22);
+  --accent:#7b6ef6; --accent2:#a78bfa; --teal:#2dd4bf;
+  --gold:#e8b94f; --coral:#f97168; --green:#4ade80;
+  --font-display:'Syne',sans-serif; --font-body:'DM Sans',sans-serif;
+  --nav-h:56px;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-.font-display { font-family: var(--font-display); }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+button,select,textarea,input{font-family:var(--font-body)}
+img{max-width:100%;height:auto;display:block}
+@keyframes pulseOrb{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.65;transform:scale(1.06)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shimmer{0%,100%{opacity:.5}50%{opacity:1}}
